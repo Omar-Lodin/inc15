@@ -119,14 +119,14 @@ class _TriviaShowdownScreenState extends State<TriviaShowdownScreen> {
       } else {
         if (!mounted || roundId != _roundId) return;
         setState(() {
-          _error = 'Server error: ${response.statusCode}';
+          _error = 'Server error: unable to connect to server';
           _isLoading = false;
         });
       }
     } catch (e) {
       if (!mounted || roundId != _roundId) return;
       setState(() {
-        _error = 'Connection failed: $e';
+        _error = 'Connection failed: reconnect to a network and try again';
         _isLoading = false;
       });
     }
@@ -260,7 +260,7 @@ class _TriviaShowdownScreenState extends State<TriviaShowdownScreen> {
                       )
                     else
                       const Text(
-                        '✓ Sync Simulation Complete',
+                        '✓ Sync Complete',
                         style: TextStyle(
                           color: Colors.green,
                           fontWeight: FontWeight.bold,
